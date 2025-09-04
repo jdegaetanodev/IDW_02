@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #1B69B4;
+            color: #EDF0F5;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #1B69B4;
+            padding: 10px 20px;
+            font-size: 20px;
+        }
+
+        nav a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #EDF0F5;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #68b4e4;
+            font-size: 20px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        h2 {
+            color: #1B69B4;
+        }
+
+        footer {
+            background-color: #95B1CA;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Hospital</h1>
+    </header>
+
+    <nav>
+        <a href="institucional.html">Información Institucional</a>
+        <a href="contacto.html">Información de Contacto</a>
+    </nav>
+
+    <section>
+        <h2>Bienvenido</h2>
+        <p>Este es el portal principal del hospital. Utilice el menú para navegar a la información institucional o de contacto.</p>
+    </section>
+
+    <footer>
+        <p>Hospital - Todos los derechos reservados 2025</p>
+    </footer>
+</body>
+</html>
