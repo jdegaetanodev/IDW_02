@@ -3,16 +3,301 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Clinica Sanar - Tu camino a la recuperación</title>
+
+    <!-- Css Bootstrap 5.3.8 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <!-- Css Personalizado -->
+     <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-    <h1>Prueba</h1>
 
-    <header>
-        
-    </header>
+    <!-- NavBar -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
 
-    <main></main>
+        <div class="container-fluid p-3">
 
+            <a class="navbar-brand" href="#">
+                <img src="assets/img/LogoSanar.png" alt="Clinica Sanar - Tu camino a la recuperación" class=" pr-5">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarText">
+            
+                <ul class="navbar-nav mb-2 mb-lg-0 w-75 d-flex justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contacto</a>
+                    </li>
+                </ul>
+
+                <span class="navbar-text w-25 d-flex justify-content-end">
+                    <a href="javascript:en_desarrollo();" class="btn btn-principal">SOLICITAR TURNO</a>
+                </span>
+
+            </div>
+
+        </div>
+
+    </nav>
+    <!-- /NavBar -->
+
+    <!-- Hero -->
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+
+        <div class="carousel-inner">
+
+            <!-- Item -->
+            <div class="carousel-item active">
+                <div class="carousel-overlay-container">
+                    <img src="assets/img/slider_03.jpg" class="d-block w-100" alt="Atención integral para tu salud ">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Atención integral para tu salud</h5>
+                        <p>Conoce todas nuestras especialidades y encuentra al profesional que necesitas</p>
+                    </div>
+                </div>
+            </div>
+            <!-- /Item -->
+
+
+            <!-- Item -->
+            <div class="carousel-item">
+                <div class="carousel-overlay-container">
+                    <img src="assets/img/slider_02.jpg" class="d-block w-100" alt="Agenda tu consulta fácilmente">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Agenda tu consulta fácilmente</h5>
+                        <p>Solicita turnos online o contáctanos para elegir el horario que mejor se adapte a ti</p>
+                    </div>
+                </div>                    
+            </div>
+            <!-- /Item -->
+
+            <!-- Item -->
+            <div class="carousel-item">
+                <div class="carousel-overlay-container">
+                    <img src="assets/img/slider_01.jpg" class="d-block w-100" alt="Cuidamos de tu bienestar y de tu bolsillo">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Cuidamos de tu bienestar y de tu bolsillo</h5>
+                        <p>Revisa nuestra lista de obras sociales y prepagas para conocer tu cobertura</p>
+                    </div>
+                </div>
+            </div>
+            <!-- /Item -->
+
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+
+    </div>
+
+    <!-- /Hero -->
+
+
+
+    <!-- Nosotros resumen -->
+
+    <div class="container">
+
+        <div class="d-flex my-5">
+
+            <div class="col-sm-6 pe-5">
+
+                <img src="assets/img/nosotros.jpg" alt="Nosotros" class="img-fluid">
+
+            </div>
+
+            <div class="col-sm-6 ">
+
+                <h3>Lorem ipsum dolor</h3>
+                <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda debitis quibusdam porro culpa ad deserunt veniam distinctio? Ut voluptate alias quae fugit eligendi voluptates ducimus. Beatae suscipit nihil esse consectetur.</p>            
+                <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda debitis quibusdam porro culpa ad deserunt veniam distinctio? Ut voluptate alias quae fugit eligendi voluptates ducimus. Beatae suscipit nihil esse consectetur.</p>            
+                <p class="mt-2 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda debitis quibusdam porro culpa ad deserunt veniam distinctio? Ut voluptate alias quae fugit eligendi voluptates ducimus. Beatae suscipit nihil esse consectetur.</p>            
+
+                <a href="#" class="btn btn-principal">Más información</a>
+
+            </div>
+
+        </div>
+
+    </div> <!-- /container  -->
+
+    <!-- /Nosotros resumen -->
+
+
+        <!-- Especialidades resumen -->
+
+        <div class="container-fluid bg-seccion py-3">
+
+            <div class="container">
+
+                <div class="d-flex my-5 flex-column">
+
+                    <div class="d-flex flex-column">
+                        
+                        <div class="col-12 text-center mb-5">
+                            <h3>Especialidades</h3>
+                            <hr>
+                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam id fugit, nesciunt ratione</p>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-sm-3 mt-3">
+
+                            <!-- card -->
+                            <div class="card h-100" style="width: 18rem;">
+                                <img src="assets/img/cargiologia.jpg" class="card-img-top" alt="Especialidad Cardiologia">
+                                <div class="card-body">
+                                    <h5 class="card-title">Cardiología</h5>
+                                    <p class="card-text">Se ocupa del diagnóstico, tratamiento y prevención de las enfermedades del corazón y del sistema circulatorio, promoviendo una vida saludable y el cuidado del corazón.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>             
+                            <!-- /card -->
+
+                        </div>
+
+                         <div class="col-sm-3 mt-3">
+
+                            <!-- card -->
+                            <div class="card h-100" style="width: 18rem;">
+                                <img src="assets/img/dermatologia.jpg" class="card-img-top" alt="Especialidad Dermatologia">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dermatologia</h5>
+                                    <p class="card-text">Especialidad que estudia, diagnostica y trata las enfermedades de la piel, cabello y uñas, así como problemas estéticos relacionados con la salud cutánea.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>             
+                            <!-- /card -->
+
+                        </div>
+
+                         <div class="col-sm-3 mt-3">
+
+                            <!-- card -->
+                            <div class="card h-100" style="width: 18rem;">
+                                <img src="assets/img/gastroenterologia.jpg" class="card-img-top" alt="Especialidad Gastroenterologia">
+                                <div class="card-body">
+                                    <h5 class="card-title">Gastroenterologia</h5>
+                                    <p class="card-text">Se dedica al estudio y tratamiento de los trastornos del aparato digestivo, incluyendo esófago, estómago, intestinos, hígado y páncreas.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>             
+                            <!-- /card -->
+
+                        </div>
+
+
+                         <div class="col-sm-3 mt-3">
+
+                            <!-- card -->
+                            <div class="card h-100" style="width: 18rem;">
+                                <img src="assets/img/ginecologia.png" class="card-img-top" alt="Especialidad Ginecologia">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ginecologia</h5>
+                                    <p class="card-text">Atiende la salud integral de la mujer, enfocándose en el sistema reproductor femenino, controles preventivos y acompañamiento en diferentes etapas de la vida.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>             
+                            <!-- /card -->
+
+                        </div>
+                    
+                         <div class="col-sm-3 mt-3">
+
+                            <!-- card -->
+                            <div class="card h-100" style="width: 18rem;">
+                                <img src="assets/img/neurologia.jpeg" class="card-img-top" alt="Especialidad Neurologia">
+                                <div class="card-body">
+                                    <h5 class="card-title">Neurologia</h5>
+                                    <p class="card-text">Especialidad que trata las enfermedades del sistema nervioso, como migrañas, epilepsia, trastornos del movimiento y enfermedades neurodegenerativas.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>             
+                            <!-- /card -->
+
+                        </div>
+                        <div class="col-sm-3 mt-3">
+
+                            <!-- card -->
+                            <div class="card h-100" style="width: 18rem;">
+                                <img src="assets/img/oftalmologia.jpg" class="card-img-top" alt="Especialidad Oftalmologia">
+                                <div class="card-body">
+                                    <h5 class="card-title">Oftalmologia</h5>
+                                    <p class="card-text">Encargada de la prevención, diagnóstico y tratamiento de las enfermedades de los ojos, así como de la corrección de problemas visuales.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>             
+                            <!-- /card -->
+
+                        </div>
+                        <div class="col-sm-3 mt-3">
+
+                            <!-- card -->
+                            <div class="card h-100" style="width: 18rem;">
+                                <img src="assets/img/ortopedia.jpg" class="card-img-top" alt="Especialidad Ortopedia">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ortopedia</h5>
+                                    <p class="card-text">Se ocupa de la prevención, diagnóstico y tratamiento de lesiones del sistema musculoesquelético, incluyendo huesos, músculos, articulaciones y ligamentos.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>             
+                            <!-- /card -->
+
+                        </div>
+                        <div class="col-sm-3 mt-3">
+
+                            <!-- card -->
+                            <div class="card h-100"  style="width: 18rem;">
+                                <img src="assets/img/pediatria.jpg" class="card-img-top" alt="Especialidad Pediatria">
+                                <div class="card-body">
+                                    <h5 class="card-title">Pediatria</h5>
+                                    <p class="card-text">Brinda atención integral a bebés, niños y adolescentes, velando por su desarrollo físico y emocional en cada etapa de crecimiento.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>             
+                            <!-- /card -->
+
+                        </div>
+                </div>
+
+            </div>
+
+        </div>  <!-- /container-fluid  -->            
+
+        <!-- /Especialidades resumen -->
+
+
+
+    <!-- Js Bootstrap 5.3.8 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+
+    <!-- Js Personalizado -->
+     <script src="assets/js/main.js"></script>
 </body>
 </html>

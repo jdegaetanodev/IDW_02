@@ -1,7 +1,74 @@
 :root {
   --color-01: #1B69B4;
   --color-02: #0a3054;
-  --color-03: #95B1CA;
+  --color-03: #F8F8F8;
   --color-04: #040303;
   --color-05: #68B4E4;
+}
+
+.bg-principal {
+  background-color: var(--color-01);
+}
+
+.bg-seccion {
+  background-color: var(--color-03);
+}
+
+/* Boton personalizado */
+.btn-principal {
+  background-color: var(--color-01);
+  color: #FFF !important; 
+}
+.btn-principal:hover {
+  background-color: var(--color-02);
+}
+
+/* Links NavBar */
+.nav-link{
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Slider */
+.carousel-item img {
+  max-height: 80vh; 
+  object-fit: cover; 
+}
+
+.carousel-caption h5 {
+  font-size: 2.5rem; 
+  font-weight: 700; 
+}
+
+.carousel-caption p {
+  font-size: 1.25rem;
+  font-weight: 400; 
+}
+
+/* Capa de Fondo oscura */
+
+.carousel-overlay-container {
+  position: relative; 
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-overlay-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1; 
+}
+
+.carousel-item img {
+  height: 100%; 
+  object-fit: cover; 
+}
+
+.carousel-caption {
+  z-index: 2; 
 }
