@@ -4,46 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Información Institucional</title>
-    <!-- se conecta con el css -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Tu CSS -->
     <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
 
-    <header>
-        <h1>Clínica Sanar</h1>
-        <p>Tu camino hacia la recuperación</p>
-    </header>
+    <div class="container mt-4">
+        
+        <!-- Header -->
+        <header>
+            <h1>Clínica Sanar</h1>
+            <p>Tu camino hacia la recuperación</p>
+        </header>
 
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="infoinstitucional.html">Información Institucional</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
+        <!-- Navigation -->
+        <nav>
+            <a href="index.html" class="btn btn-outline-primary me-2">Inicio</a>
+            <a href="infoinstitucional.html" class="btn btn-primary me-2">Información Institucional</a>
+            <a href="contacto.html" class="btn btn-outline-primary">Contacto</a>
+        </nav>
 
-    <main>
-        <h2>¿Quiénes somos?</h2>
-        <p>
-            Somos una institución orientada a ofrecer servicios de salud de calidad, con un enfoque humano y profesional. 
-            Nuestro compromiso principal es contribuir al bienestar y desarrollo integral de la comunidad.
+        <!-- Main Content -->
+        <main class="mt-4">
+            
+            <h2>¿Quiénes somos?</h2>
+            <p>
+                Somos una institución orientada a ofrecer servicios de salud de calidad, con un enfoque humano y profesional. 
+                Nuestro compromiso principal es contribuir al bienestar y desarrollo integral de la comunidad.
+            </p>
 
-        </p>
+            <h2>Lo que nos mueve</h2>
+            <p>
+                Buscamos brindar atención médica integral, con ética, responsabilidad y compromiso social,
+                acompañando a nuestros pacientes frente a los desafíos de un mundo en constante cambio.
+            </p>
 
-        <h2>Lo que nos mueve</h2>
-        <p>
-            Buscamos brindar atención médica integral, con ética, responsabilidad y compromiso social,
-            acompañando a nuestros pacientes frente a los desafíos de un mundo en constante cambio.
-        </p>
+            <h2>Hacia donde vamos</h2>
+            <p>
+                Ser una institución reconocida a nivel nacional por su excelencia, 
+                innovación y compromiso con la sociedad.
+            </p>
 
-        <h2>Hacia donde vamos</h2>
-        <p>
-            Ser una institución reconocida a nivel nacional por su excelencia, 
-            innovación y compromiso con la sociedad.
-        </p>
-    </main>
+        </main>
 
-    <footer>
-        <p>&copy; 2025 Clínica Sanar | Todos los derechos reservados</p>
-    </footer>
+        <!-- Footer -->
+        <footer class="mt-5">
+            <p>&copy; 2025 Clínica Sanar | Todos los derechos reservados</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
