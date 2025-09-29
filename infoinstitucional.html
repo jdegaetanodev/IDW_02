@@ -8,53 +8,146 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Tu CSS -->
     <link rel="stylesheet" href="estilos.css">
+    <style>
+        body {
+            background-color: #EDF0F5;
+        }
+        .encabezado-personalizado {
+            background-image: url('clinica-sanar.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+            padding: 3rem 0;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .encabezado-personalizado::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(27, 105, 180, 0.7);
+            border-radius: 10px;
+        }
+        .encabezado-personalizado h1, .encabezado-personalizado p {
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .navegacion-personalizada {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        .navegacion-personalizada a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0 1.5rem;
+        }
+        .navegacion-personalizada a:hover {
+            color: #1B69B4;
+        }
+        .seccion-contenido {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #68B4E4;
+        }
+        .seccion-contenido h2 {
+            color: #1B69B4;
+            margin-bottom: 1rem;
+        }
+        .imagen-seccion {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .pie-pagina {
+            background-color: #2d2d2d;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
     <div class="container mt-4">
         
-        <!-- Header -->
-        <header>
+        <!-- Encabezado -->
+        <header class="encabezado-personalizado text-center">
             <h1>Clínica Sanar</h1>
             <p>Tu camino hacia la recuperación</p>
         </header>
 
-        <!-- Navigation -->
-        <nav>
-            <a href="index.html" class="btn btn-outline-primary me-2">Inicio</a>
-            <a href="infoinstitucional.html" class="btn btn-primary me-2">Información Institucional</a>
-            <a href="contacto.html" class="btn btn-outline-primary">Contacto</a>
+        <!-- Navegacion -->
+        <nav class="navegacion-personalizada text-center">
+            <a href="index.html">Inicio</a>
+            <a href="infoinstitucional.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
         </nav>
 
-        <!-- Main Content -->
-        <main class="mt-4">
+        <!-- Contenido Principal -->
+        <main>
             
-            <h2>¿Quiénes somos?</h2>
-            <p>
-                Somos una institución orientada a ofrecer servicios de salud de calidad, con un enfoque humano y profesional. 
-                Nuestro compromiso principal es contribuir al bienestar y desarrollo integral de la comunidad.
-            </p>
+            <div class="seccion-contenido">
+                <h2>¿Quiénes somos?</h2>
+                <img src="quienes-somos.jpg" alt="Quiénes somos" class="imagen-seccion">
+                <p>
+                    Somos un equipo que nació de la idea de que las cosas se pueden hacer de otra manera: con compromiso, transparencia y cercanía. Desde nuestros primeros pasos,
+                    hemos buscado construir un espacio donde las ideas crezcan, se transformen en proyectos concretos y, sobre todo, generen un impacto positivo en las personas.
+                    Nos define la pasión por lo que hacemos, la confianza entre quienes formamos parte de este proyecto y la convicción de que cada detalle importa. 
+                    No nos limitamos solo a ofrecer un servicio o producto, sino a crear experiencias que aporten valor y dejen huella. Nuestra historia sigue escribiéndose todos los días,
+                    junto a quienes creen en nosotros.
+                
+                </p>
+            </div>
 
-            <h2>Lo que nos mueve</h2>
-            <p>
-                Buscamos brindar atención médica integral, con ética, responsabilidad y compromiso social,
-                acompañando a nuestros pacientes frente a los desafíos de un mundo en constante cambio.
-            </p>
+            <div class="seccion-contenido">
+                <h2>Lo que nos mueve</h2>
+                <img src="lo-que-nos-mueve.jpg" alt="Lo que nos mueve" class="imagen-seccion">
+                <p>
+                    Nuestra mayor motivación es el propósito que nos impulsa: trabajar con pasión para transformar realidades y aportar soluciones auténticas.
+                    Nos mueve la innovación, la creatividad y el deseo constante de aprender y mejorar.
+                    Creemos que el camino hacia los grandes cambios empieza con pequeños pasos bien dados.
+                    Por eso, cada proyecto que emprendemos lo hacemos con la convicción de que puede marcar la diferencia. Nos inspiran los desafíos, las historias de quienes confían en nosotros
+                    y la certeza de que el esfuerzo compartido multiplica los resultados.
+                    Lo que nos mueve, en definitiva, es la posibilidad de dejar un legado y ser parte de algo más grande que nosotros mismos.
+                </p>
+            </div>
 
-            <h2>Hacia donde vamos</h2>
-            <p>
-                Ser una institución reconocida a nivel nacional por su excelencia, 
-                innovación y compromiso con la sociedad.
-            </p>
+            <div class="seccion-contenido">
+                <h2>Hacia donde vamos</h2>
+                <img src="hacia-donde-vamos.jpg" alt="Hacia donde vamos" class="imagen-seccion">
+                <p>
+                    Miramos hacia adelante con la certeza de que lo mejor está por venir. Nuestra visión de futuro es clara: crecer de forma sostenible,
+                    innovar sin perder nuestra esencia y construir vínculos sólidos que trasciendan el tiempo.Queremos ser un referente en nuestro campo, no solo por lo que hacemos,
+                    sino por cómo lo hacemos: con responsabilidad, empatía y una mirada humana en cada paso. Apostamos por el desarrollo,
+                    la colaboración y la generación de oportunidades que abran caminos nuevos. El destino que proyectamos no es solo nuestro: lo pensamos junto a quienes nos acompañan.
+                    Porque sabemos que cada persona, cliente o aliado que se suma, nos ayuda a avanzar un poco más. Este viaje recién comienza, y queremos que formes parte de la historia que estamos escribiendo.
+                </p>
+            </div>
 
         </main>
 
-        <!-- Footer -->
-        <footer class="mt-5">
-            <p>&copy; 2025 Clínica Sanar | Todos los derechos reservados</p>
-        </footer>
-
     </div>
+
+    <!-- Pie de Página -->
+    <footer class="pie-pagina mt-5">
+        <p>&copy; 2025 Clínica Sanar | Todos los derechos reservados</p>
+    </footer>
 
 </body>
 </html>
