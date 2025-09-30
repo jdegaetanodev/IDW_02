@@ -145,12 +145,31 @@ body.dark-mode .nav-link{
 }
 
 body.dark-mode .navbar{
-    background-color: #121212 !important;
+    background-color: #1f1d1d !important;
     color: #f0f0f0 !important;    
 }
 
 body.dark-mode .bg-seccion {
     background-color: #121212 !important;
+}
+
+body.dark-mode .seccion-contenido {
+    background-color: #2d2d2d;  
+    color: #ffffff;  
+}
+
+body.dark-mode .card {
+    background-color: #2d2d2d;  /* fondo oscuro para las cards */
+    color: #ffffff;  /* texto blanco */
+    border-color: #444;  /* borde más oscuro */
+}
+
+body.dark-mode .card-title {
+    color: #68B4E4;  /* títulos en azul claro */
+}
+
+body.dark-mode .card-text {
+    color: #e0e0e0;  /* texto un poco más suave */
 }
 
 /* Codigo para el modo normal */
