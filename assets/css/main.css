@@ -73,3 +73,89 @@
   z-index: 2; 
 }
 
+.seccion-contenido {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #68B4E4;
+}
+.seccion-contenido h2 {
+    color: #1B69B4;
+    margin-bottom: 1rem;
+}
+.imagen-seccion {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imagen-seccion {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Dark Mode */
+
+/* Estilo general del botón */
+.dark-mode-btn button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.8rem;
+    position: relative;
+    padding: 10px;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+
+/* Icono arriba del círculo */
+.dark-mode-btn i {
+    position: relative;
+    z-index: 1;
+    color: #f1c40f; /* Sol amarillo por defecto */
+    transition: color 0.3s;
+}
+
+/* Cuando el body está en modo oscuro */
+body.dark-mode .dark-mode-btn button::before {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+/* Codigo para el modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;    
+}
+
+body.dark-mode .nav-link{
+    color: #f0f0f0 !important;    
+}
+
+body.dark-mode .navbar{
+    background-color: #121212 !important;
+    color: #f0f0f0 !important;    
+}
+
+body.dark-mode .bg-seccion {
+    background-color: #121212 !important;
+}
+
+/* Codigo para el modo normal */
+body.dark-mode .dark-mode-btn i {
+    color: #ffffff; /* Luna blanca */
+}
+
+
