@@ -10,7 +10,7 @@
     <!-- Css Bootstrap 5.3.8 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <!-- Css Personalizado -->
-     <link rel="stylesheet" href="assets/css/main.css">
+     <link rel="stylesheet" href="../assets/css/main.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -25,7 +25,7 @@
             <div class="d-flex justify-content-between align-items-center">
 
                 <a class="navbar-brand" href="#">
-                    <img src="assets/img/LogoSanar.png" alt="Clinica Sanar - Tu camino a la recuperación" class="img-fluid">
+                    <img src="../assets/img/LogoSanar.png" alt="Clinica Sanar - Tu camino a la recuperación" class="img-fluid">
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -77,10 +77,97 @@
     <main class="mt-4">
 
         <div class="container">
+        
+        <h3 class="mt-5">Lista de Medicos</h3>
+        <hr>
 
-            <!-- Aca va todo el contenido de la página -->
+        <div class="row mb-2">
+            <div class="col-sm-12 d-flex justify-content-end">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    NUEVO
+                </button>
+            </div>
+        </div>
 
-        </div>                
+        <table class="table table-sm table-bordered table-striped">
+            <tr>
+                <td>Matricula</td>
+                <td>Apellido</td>
+                <td>Nombre</td>
+                <td>Especialidad</td>
+                <td>Obra Social</td>
+                <td>Acciones</td>
+            </tr>
+
+            <tr>
+                <td>2354851</td>
+                <td>Gonzales</td>
+                <td>Cipriano</td>
+                <td>Cardiologo</td>
+                <td>IOMA</td>
+                <td>
+                    <a href="#"  class="btn btn-success btn-sm">Editar</a>
+                    <a href="#"  class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog"> 
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+
+
+            <div class="modal-body">
+                <form action="" method="post">
+
+                    <div class="row">
+
+                        <div class="col-sm-12">
+                             <label>Matrícula:</label>
+                            <br>
+                            <input type="text" name="matricula" id="matricula" class="form-control form-control-sm">
+                             <label>Apellido:</label>
+                            <br>
+                            <input type="text" name="apellido" id="apellido" class="form-control form-control-sm">
+                            
+                            <label>Nombre:</label>
+                            <br>
+                            <input type="text" name="nombre" id="nombre" class="form-control form-control-sm">
+                             <label>Especialidad:</label>
+                            <br>
+                            <input type="text" name="especialidad" id="especialidad" class="form-control form-control-sm">
+                             <label>Obra Social:</label>
+                            <br>
+                            <input type="text" name="obrasocial" id="obrasocial" class="form-control form-control-sm">
+                             <label>Consulta:</label>
+                            <br>
+                            <input type="text" name="consulta" id="consulta" class="form-control form-control-sm">
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
+                <button type="button" class="btn btn-primary">GUARDAR</button>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
 
     </main>
 
@@ -100,5 +187,12 @@
 
     <!-- Js Personalizado -->
      <script src="assets/js/main.js"></script>
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </body>
 </html>            

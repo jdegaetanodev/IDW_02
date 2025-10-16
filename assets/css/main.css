@@ -45,7 +45,6 @@
   font-weight: 400; 
 }
 
-/* Capa de Fondo oscura */
 
 .carousel-overlay-container {
   position: relative; 
@@ -106,9 +105,7 @@
     margin-right: auto;
 }
 
-/* Dark Mode */
 
-/* Estilo general del botón */
 .dark-mode-btn button {
     background: none;
     border: none;
@@ -120,21 +117,20 @@
     transition: background-color 0.3s;
 }
 
-/* Icono arriba del círculo */
 .dark-mode-btn i {
     position: relative;
     z-index: 1;
-    color: #f1c40f; /* Sol amarillo por defecto */
+    color: #f1c40f; 
     transition: color 0.3s;
 }
 
-/* Cuando el body está en modo oscuro */
+
 body.dark-mode .dark-mode-btn button::before {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
 
-/* Codigo para el modo oscuro */
+
 body.dark-mode {
     background-color: #121212;
     color: #f0f0f0;    
@@ -159,20 +155,90 @@ body.dark-mode .seccion-contenido {
 }
 
 body.dark-mode .card {
-    background-color: #2d2d2d;  /* fondo oscuro para las cards */
-    color: #ffffff;  /* texto blanco */
-    border-color: #444;  /* borde más oscuro */
+    background-color: #2d2d2d;  
+    color: #ffffff;  
+    border-color: #444;  
 }
 
 body.dark-mode .card-title {
-    color: #68B4E4;  /* títulos en azul claro */
+    color: #68B4E4;  
 }
 
 body.dark-mode .card-text {
-    color: #e0e0e0;  /* texto un poco más suave */
+    color: #e0e0e0;  
 }
 
-/* Codigo para el modo normal */
+
 body.dark-mode .dark-mode-btn i {
-    color: #ffffff; /* Luna blanca */
+    color: #ffffff; 
 }
+
+
+body { font-family: sans-serif; background-color: #f4f4f9; padding: 20px; }
+        .formulario-interes { 
+            max-width: 400px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            background: white; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+            text-align: center;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        /* Contenedor Flex para alinear los botones horizontalmente */
+        .opciones-botones {
+            display: flex;
+            flex-direction: column; /* Apila las opciones verticalmente para mayor claridad */
+            gap: 15px; /* Espacio entre los botones */
+        }
+
+        /* Estilos de los botones de selección */
+        .opcion-boton input[type="radio"] {
+            /* Oculta el botón de radio nativo */
+            display: none;
+        }
+        
+        .opcion-boton label {
+            /* Estilo visual del botón */
+            display: block;
+            padding: 15px 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px; 
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        /* Estilo al pasar el mouse */
+        .opcion-boton label:hover {
+            border-color: #007bff;
+            background-color: #e9f5ff;
+        }
+
+        /* Estilo para la opción seleccionada */
+        .opcion-boton input[type="radio"]:checked + label {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+        }
+        
+        /* Botón final (Submit) */
+        .boton-enviar {
+            margin-top: 30px;
+            width: 100%;
+            padding: 15px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+        }
