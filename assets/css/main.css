@@ -175,70 +175,18 @@ body.dark-mode .dark-mode-btn i {
 
 
 body { font-family: sans-serif; background-color: #f4f4f9; padding: 20px; }
-        .formulario-interes { 
-            max-width: 400px; 
-            margin: 40px auto; 
-            padding: 20px; 
-            background: white; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-            text-align: center;
-        }
+
+.formulario-interes { 
+    max-width: 400px; 
+    margin: 40px auto; 
+    padding: 20px; 
+    background: white; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+    text-align: center;
+}
         
-        h2 {
-            color: #333;
-            margin-bottom: 25px;
-        }
-
-        /* Contenedor Flex para alinear los botones horizontalmente */
-        .opciones-botones {
-            display: flex;
-            flex-direction: column; /* Apila las opciones verticalmente para mayor claridad */
-            gap: 15px; /* Espacio entre los botones */
-        }
-
-        /* Estilos de los botones de selección */
-        .opcion-boton input[type="radio"] {
-            /* Oculta el botón de radio nativo */
-            display: none;
-        }
-        
-        .opcion-boton label {
-            /* Estilo visual del botón */
-            display: block;
-            padding: 15px 20px;
-            border: 2px solid #ccc;
-            border-radius: 8px; 
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: bold;
-            font-size: 1.1em;
-            color: #555;
-        }
-
-        /* Estilo al pasar el mouse */
-        .opcion-boton label:hover {
-            border-color: #007bff;
-            background-color: #e9f5ff;
-        }
-
-        /* Estilo para la opción seleccionada */
-        .opcion-boton input[type="radio"]:checked + label {
-            background-color: #007bff;
-            color: white;
-            border-color: #007bff;
-            box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
-        }
-        
-        /* Botón final (Submit) */
-        .boton-enviar {
-            margin-top: 30px;
-            width: 100%;
-            padding: 15px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            cursor: pointer;
-        }
+h2 {
+    color: #333;
+    margin-bottom: 25px;
+}
