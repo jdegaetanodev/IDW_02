@@ -2,14 +2,14 @@
 const datosIniciales = {
     
   "especialidades": [
-    { "id_especialidad": 1, "nombre": "Cardiología" },
-    { "id_especialidad": 2, "nombre": "Dermatología" },
-    { "id_especialidad": 3, "nombre": "Gastroenterología" },
-    { "id_especialidad": 4, "nombre": "Ginecología" },
-    { "id_especialidad": 5, "nombre": "Neurología" },
-    { "id_especialidad": 6, "nombre": "Oftalmología" },
-    { "id_especialidad": 7, "nombre": "Ortopedia" },
-    { "id_especialidad": 8, "nombre": "Pediatría" }
+    { "id_especialidad": 1, "nombre": "Cardiología", "img": "cargiologia.jpg", "descripcion": "Se ocupa del diagnóstico, tratamiento y prevención de las enfermedades del corazón y del sistema circulatorio, promoviendo una vida saludable y el cuidado del corazón" },
+    { "id_especialidad": 2, "nombre": "Dermatología", "img": "dermatologia.jpg", "descripcion": "Especialidad que estudia, diagnostica y trata las enfermedades de la piel, cabello y uñas, así como problemas estéticos relacionados con la salud cutánea." },
+    { "id_especialidad": 3, "nombre": "Gastroenterología", "img": "gastroenterologia.jpg", "descripcion": "Se dedica al estudio y tratamiento de los trastornos del aparato digestivo, incluyendo esófago, estómago, intestinos, hígado y páncreas." },
+    { "id_especialidad": 4, "nombre": "Ginecología", "img": "ginecologia.png", "descripcion": "Atiende la salud integral de la mujer, enfocándose en el sistema reproductor femenino, controles preventivos y acompañamiento en diferentes etapas de la vida." },
+    { "id_especialidad": 5, "nombre": "Neurología", "img": "neurologia.jpeg", "descripcion": "Especialidad que trata las enfermedades del sistema nervioso, como migrañas, epilepsia, trastornos del movimiento y enfermedades neurodegenerativas." },
+    { "id_especialidad": 6, "nombre": "Oftalmología", "img": "oftalmologia.jpg", "descripcion": "Encargada de la prevención, diagnóstico y tratamiento de las enfermedades de los ojos, así como de la corrección de problemas visuales." },
+    { "id_especialidad": 7, "nombre": "Ortopedia", "img": "ortopedia.jpg", "descripcion": "Se ocupa de la prevención, diagnóstico y tratamiento de lesiones del sistema musculoesquelético, incluyendo huesos, músculos, articulaciones y ligamentos." },
+    { "id_especialidad": 8, "nombre": "Pediatría", "img": "pediatria.jpg", "descripcion": "Brinda atención integral a bebés, niños y adolescentes, velando por su desarrollo físico y emocional en cada etapa de crecimiento." }
   ],
   "obras_sociales": [
     { "id_obra_social": 101, "nombre": "Salud Total" },
@@ -69,30 +69,3 @@ const datosIniciales = {
     { "id_profesional": 1032, "matricula": "PE-23456", "apellido": "Vega", "nombre": "Sebastián", "id_especialidad": 8, "id_obra_social": 102, "costo_consulta": 3600 }
   ]
 };
-
-function cargaEnLocalStorage() // Carga desde la variable al LocalStorage
-{
-    if(localStorage.getItem(claveLocalStorage) === null) 
-    {
-        const claveLocalStorage = 'datos_medicos';
-        const jsonString = JSON.stringify(datosIniciales);
-        
-        localStorage.setItem(claveLocalStorage, jsonString);
-    }
-}
-
-function obtenerDeLocalStorage() 
-{
-    const claveLocalStorage = 'datos_medicos';
-    const jsonString = localStorage.getItem(claveLocalStorage);
-  
-    if (jsonString) 
-    {
-        const datosRecuperados = JSON.parse(jsonString);
-        return datosRecuperados;
-    }  
-    else 
-    {
-        return null;
-    }
-}
