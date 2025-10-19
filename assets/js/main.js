@@ -34,8 +34,8 @@ function cargarDesdeLocalstorage() {
 
     cargaEnLocalStorage();
     
-    datos = obtenerDeLocalStorage();         
-
+    datos = obtenerDeLocalStorage();       
+    
     datosProfesionales = datos.profesionales;     
     datosEspecialidades = datos.especialidades;  
     datosObraSocial = datos.obras_sociales;
@@ -78,11 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* Especialidades */ 
 function desplegarEspecialidades() {
 
-    datosProfesionales = [];     
-    datosEspecialidades = [];  
-    datosObraSocial = [];
 
-    cargarDesdeLocalstorage();
 
     let listaEspecialidades = document.getElementById('especialidades');
     let titulo = document.getElementById('titulo');    
@@ -199,3 +195,9 @@ function desplegarProfesionalesEspecialidad(id_especialidad) {
 
     });   
 }
+
+datosProfesionales = [];     
+datosEspecialidades = [];  
+datosObraSocial = [];
+
+cargarDesdeLocalstorage();
