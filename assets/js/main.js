@@ -78,8 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
 /* Especialidades */ 
 function desplegarEspecialidades() {
 
-
-
     let listaEspecialidades = document.getElementById('especialidades');
     let titulo = document.getElementById('titulo');    
     let divVolver = document.getElementById('divVolver');    
