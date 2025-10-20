@@ -55,6 +55,7 @@ function nuevoProfesional() {
     limpiarFormulario();
     mostrarFormulario();
 
+    document.getElementById('id_profesional').value = 0;
 }
 
 function editarProfesional(id_profesional) {
@@ -66,6 +67,8 @@ function editarProfesional(id_profesional) {
         profesional.id_profesional == id_profesional
     );
     
+    document.getElementById('id_profesional').value = profesionalSeleccionado[0].id_profesional;
+
     document.getElementById('matricula').value = profesionalSeleccionado[0].matricula;
     document.getElementById('apellido').value = profesionalSeleccionado[0].apellido;
     document.getElementById('nombre').value = profesionalSeleccionado[0].nombre;
@@ -176,12 +179,18 @@ function getId() {
 
 function guardarProfesional() {
 
-    let id_profesional = document.getElementById('id_profesional').value;
+    let id_profesional = parseInt(document.getElementById('id_profesional').value);
+    let accion;
 
     if(id_profesional == 0) {
 
         id_profesional = getId();    
-        let accion = 'nuevo';    
+        accion = 'nuevo';    
+
+    } else {
+
+        accion = 'editar';
+
     }
 
 
@@ -215,22 +224,36 @@ function guardarProfesional() {
 
     } else { // Editar
 
+        const jsonString = localStorage.getItem('datos_medicos');
+        let datosActuales = JSON.parse(jsonString); 
+        let datosProfesionales = datosActuales.profesionales; 
+        
         const indice = datosProfesionales.findIndex(
-            p => p.id_profesional === datosProfesionales.id_profesional
+            p => p.id_profesional == profesionalActual.id_profesional
         );
 
-        // 5. Si se encuentra, reemplazar el objeto antiguo con los nuevos datos
-        if (indice !== -1) {
+        if (indice !== -1) { // Se encontro el profesional a actualizar
+            
             datosProfesionales[indice] = profesionalActual;
+            datosActuales.profesionales = datosProfesionales;
+            
+            localStorage.setItem('datos_medicos', JSON.stringify(datosActuales));
+
+            Swal.fire({
+                title: "Guardado",
+                text: "El profesional fue actualizado con éxito",
+                icon: "success"
+            });
+
+        } else {
+
+            Swal.fire({
+                title: "Error",
+                text: "No se encontro el profesional a actualizar",
+                icon: "error"
+            });            
         }
-
-        Swal.fire({
-            title: "Guardado",
-            text: "El profesional fue actualizado de alta con éxito",
-            icon: "success"
-        });
-
-    } // Termina editar
+    }
 
     cargarTablaProfesionales();  
 
