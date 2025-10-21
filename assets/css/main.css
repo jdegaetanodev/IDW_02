@@ -172,3 +172,109 @@ body.dark-mode .card-text {
 body.dark-mode .dark-mode-btn i {
     color: #ffffff; 
 }
+
+/*css reservas*/
+
+body {
+            background-color: #EDF0F5;
+        }
+        .encabezado-personalizado {
+            background-color: #1B69B4;
+            color: white;
+            padding: 2rem 0;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        .navegacion-personalizada {
+            background-color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+        .navegacion-personalizada a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0 1.5rem;
+        }
+        .navegacion-personalizada a:hover {
+            color: #1B69B4;
+        }
+        .contenedor-reservas {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #68B4E4;
+        }
+        .btn-agregar {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            cursor: pointer;
+        }
+        .btn-agregar:hover {
+            background-color: #218838;
+        }
+        .btn-editar {
+            background-color: #ffc107;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            margin: 0 0.2rem;
+            cursor: pointer;
+        }
+        .btn-eliminar {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 0.4rem 0.8rem;
+            border-radius: 5px;
+            margin: 0 0.2rem;
+            cursor: pointer;
+        }
+        .pie-pagina {
+            background-color: #2d2d2d;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        table {
+            font-size: 0.85rem;
+        }
+        .table th {
+            background-color: #1B69B4;
+            color: white;
+        }
+        .seccion-formulario {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            border: 2px solid #68B4E4;
+        }
+        .seccion-formulario h3 {
+            color: #1B69B4;
+            margin-bottom: 1.5rem;
+        }
+        .form-label {
+            font-weight: 500;
+            color: #333;
+        }
+        .valor-total-display {
+            background-color: #d4edda;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+            border: 1px solid #c3e6cb;
+            text-align: center;
+        }
+        .valor-total-display strong {
+            color: #155724;
+            font-size: 1.3rem;
+        }
