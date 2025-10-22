@@ -1,6 +1,69 @@
+function logout() {
+    // 1. Borrar la información de la sesión del localStorage
+    localStorage.removeItem('isLoggedIn');
+    localStorage.removeItem('userRole');
+    localStorage.removeItem('username');
+    
+    // 🚨 Mostrar alerta de sesión cerrada con SweetAlert2 🚨
+    Swal.fire({
+        icon: 'info', // Puedes usar 'success' o 'info'
+        title: 'Sesión Cerrada',
+        html: 'Has cerrado sesión correctamente. ¡Vuelve pronto!<br>Esta ventana se cerrará automáticamente en 2 segundos.',
+        showConfirmButton: false, // Opcional: No mostrar el botón
+        timer: 2000 // Opcional: Cerrar automáticamente después de 2 segundos
+    }).then(() => {
+        // 2. Redirigir a la página principal (index.html) después de que SweetAlert se cierre
+        window.location.href = 'index.html'; 
+    });
+}
+
+function checkAuthentication() {
+    // 1. Obtener estado de logueo y ROL del usuario
+    const isLogged = localStorage.getItem('isLoggedIn') === 'true';
+    const userRole = localStorage.getItem('userRole'); 
+
+    // 2. Obtener referencias
+    const btnIngresar = document.getElementById('btn-ingresar');
+    const btnSolicitarTurno = document.getElementById('btn-solicitar-turno');
+    const navLogout = document.getElementById('nav-logout'); 
+    const userIcon = document.getElementById('user-icon'); // <--- Referencia al nuevo ícono
+
+    if (btnIngresar && btnSolicitarTurno && navLogout && userIcon) {
+        if (isLogged) {
+            // USUARIO LOGUEADO: 
+            
+            btnIngresar.classList.add('d-none');
+            navLogout.classList.remove('d-none');         
+            
+            // LÓGICA DEL ÍCONO: Muestra la silueta
+            userIcon.classList.remove('d-none');
+
+            // LÓGICA DEL BOTÓN SOLICITAR TURNO (oculto para admin)
+            if (userRole === 'administrador') {
+                btnSolicitarTurno.classList.add('d-none');
+            } else {
+                btnSolicitarTurno.classList.remove('d-none');
+            }
+
+        } else {
+            // USUARIO NO LOGUEADO:
+            
+            btnIngresar.classList.remove('d-none');
+            btnSolicitarTurno.classList.add('d-none');
+            navLogout.classList.add('d-none'); 
+            
+            // LÓGICA DEL ÍCONO: Oculta la silueta
+            userIcon.classList.add('d-none');
+        }
+    }
+}
+
+window.onload = checkAuthentication;
+
 function solicitarTurno()
 {
-    alert('En desarrollo');
+    //alert('En desarrollo');
+    window.location.href = 'turnos.html';
 }
 
 function cargaEnLocalStorage() // Carga desde la variable al LocalStorage

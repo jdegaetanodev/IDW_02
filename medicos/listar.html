@@ -13,6 +13,7 @@
     <!-- Sweet Alert 2 -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.23.0/sweetalert2.min.css" integrity="sha512-Ivy7sPrd6LPp20adiK3al16GBelPtqswhJnyXuha3kGtmQ1G2qWpjuipfVDaZUwH26b3RDe8x707asEpvxl7iA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -38,32 +39,41 @@
             
             <div class="collapse navbar-collapse justify-content-between mt-4 mt-xs-0" id="navbarText">
             
-                <ul class="navbar-nav mb-2 mb-lg-0 w-75 d-flex justify-content-center">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../nosotros.html">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../especialidades.html">Especialidades</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../contacto.html">Contacto</a>
-                    </li>
-                </ul>
+                <ul class="navbar-nav mb-2 mb-lg-0 w-75 d-flex justify-content-center" id="main-nav-list">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="nosotros.html">Nosotros</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="especialidades.html">Especialidades</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contacto.html">Contacto</a>
+        </li>
+        <li class="nav-item d-none" id="nav-logout">
+            <a class="nav-link" href="javascript:logout()">Cerrar Sesión</a>
+        </li>
+    </ul>
+               
+    <span class="navbar-text col-xs-6 col-md-3 d-flex justify-content-start justify-content-md-end align-items-center" id="auth-buttons">
+                
+        <a href="login.html" id="btn-ingresar" class="btn btn-principal">INGRESAR</a>
 
-                <span class="navbar-text col-xs-6 col-md-3 d-flex justify-content-start justify-content-md-end">
-                    <a href="javascript:solicitarTurno()" class="btn btn-principal">SOLICITAR TURNO</a>
+        <a href="javascript:solicitarTurno()" id="btn-solicitar-turno" class="btn btn-principal d-none me-3">SOLICITAR TURNO</a>
+    
+    <span id="user-icon" class="d-none me-3" style="font-size: 1.5rem; color: #1B69B4;">
+        <i class="fa-solid fa-user"></i>
+    </span>
 
-                    <div class="dark-mode-btn">
-                        <button id="toggle-dark-mode">
-                            <i class="fa-solid fa-sun"></i>                    
-                        </button>
-                    </div>
+       <div class="dark-mode-btn">
+            <button id="toggle-dark-mode">
+                <i class="fa-solid fa-sun"></i>
+            </button>
+        </div>
 
-                </span>
-
+    </span> 
 
 
             </div>
