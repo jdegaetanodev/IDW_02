@@ -10,6 +10,7 @@
       
     <!-- Css Personalizado -->
      <link rel="stylesheet" href="assets/css/main.css">
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body class="d-flex flex-column min-vh-100 light-mode">
@@ -33,37 +34,50 @@
             
             <div class="collapse navbar-collapse justify-content-between mt-4 mt-xs-0" id="navbarText">
             
-                <ul class="navbar-nav mb-2 mb-lg-0 w-75 d-flex justify-content-center">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="nosotros.html">Nosotros</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="especialidades.html">Especialidades</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contacto.html">Contacto</a>
-                    </li>
-                </ul>
+    <ul class="navbar-nav mb-2 mb-lg-0 w-75 d-flex justify-content-center" id="main-nav-list">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="nosotros.html">Nosotros</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="especialidades.html">Especialidades</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contacto.html">Contacto</a>
+        </li>
+        <li class="nav-item d-none" id="nav-admin">
+            <a class="nav-link" href="admin.html">Admin</a>
+        </li>
+        <li class="nav-item d-none" id="nav-logout">
+            <a class="nav-link" href="javascript:logout()">Cerrar Sesión</a>
+        </li>
+    </ul>
+               
+    <span class="navbar-text col-xs-6 col-md-3 d-flex justify-content-start justify-content-md-end align-items-center" id="auth-buttons">
+                
+        <a href="login.html" id="btn-ingresar" class="btn btn-principal">INGRESAR</a>
 
-                <span class="navbar-text col-xs-6 col-md-3 d-flex justify-content-start justify-content-md-end">
-                    <a href="javascript:solicitarTurno()" class="btn btn-principal">SOLICITAR TURNO</a>
+        <a href="javascript:solicitarTurno()" id="btn-solicitar-turno" class="btn btn-principal d-none me-3">SOLICITAR TURNO</a>
+    
+    <span id="user-icon" class="d-none me-3" style="font-size: 1.5rem; color: #1B69B4;">
+        <i class="fa-solid fa-user"></i>
+    </span>
 
-                    <div class="dark-mode-btn">
-                        <button id="toggle-dark-mode">
-                            <i class="fa-solid fa-sun"></i>                    
-                        </button>
-                    </div>
-
-                </span>
-
-
-
-            </div>
-
+     
+       <div class="dark-mode-btn">
+            <button id="toggle-dark-mode">
+                <i class="fa-solid fa-sun"></i>
+            </button>
         </div>
+
+    </span>
+
+
+    </div>
+
+    </div>
 
     </nav>
     <!-- /NavBar -->
@@ -139,49 +153,42 @@
 
     <div class="container">
 
-        <div class="row my-5 ">
+    <div class="row my-5 ">
 
-            <div class="col-sm-12 col-md-6 pe-md-5">
+        <div class="col-sm-12 col-md-6 pe-md-5">
 
-                <img src="assets/img/nosotros.jpg" alt="Nosotros" class="img-fluid">
-
-            </div>
-
-            <div class="col-sm-12 col-md-6 mt-4 mt-md-0 pe-md-5 text-center text-xs-start">
-
-                <h3>Lorem ipsum dolor</h3>
-                <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda debitis quibusdam porro culpa ad deserunt veniam distinctio? Ut voluptate alias quae fugit eligendi voluptates ducimus. Beatae suscipit nihil esse consectetur.</p>            
-                <p class="mt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda debitis quibusdam porro culpa ad deserunt veniam distinctio? Ut voluptate alias quae fugit eligendi voluptates ducimus. Beatae suscipit nihil esse consectetur.</p>            
-                <p class="mt-2 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda debitis quibusdam porro culpa ad deserunt veniam distinctio? Ut voluptate alias quae fugit eligendi voluptates ducimus. Beatae suscipit nihil esse consectetur.</p>            
-
-                <a href="#" class="btn btn-principal">Más información</a>
-
-            </div>
+            <img src="assets/img/nosotros.jpg" alt="Nosotros" class="img-fluid">
 
         </div>
 
-    </div> <!-- /container  -->
+        <div class="col-sm-12 col-md-6 mt-4 mt-md-0 pe-md-5 text-center text-xs-start">
 
-    <!-- /Nosotros resumen -->    
+            <h3>Tu Salud, Nuestra Prioridad</h3>
+            <p class="mt-2">En <strong><em>Clínica Sanar</em></strong>, creemos que el bienestar es un viaje y queremos ser tu guía en cada paso hacia la recuperación. Nuestro compromiso es ofrecer una atención médica de la más alta calidad, centrada en el paciente y respaldada por profesionales experimentados y tecnología avanzada.</p>
+            <p class="mt-2">Fundada con la visión de un cuidado integral y humano, nos esforzamos por crear un ambiente donde te sientas seguro y escuchado. Desde la prevención hasta los tratamientos más complejos, nuestro enfoque es siempre holístico y personalizado.</p>
+            <p class="mt-2 mb-5">Nos distinguimos por la calidez de nuestro personal y la excelencia en cada servicio que ofrecemos. El camino a la sanación comienza aquí, con un equipo dedicado a cuidarte a ti y a tu familia en todo momento.</p>
 
-    <!-- Especialidades resumen -->
+            <a href="#" class="btn btn-principal">Más información</a>
 
-    <div class="container-fluid bg-seccion py-3">
+        </div>
 
-        <div class="container">
+    </div>
 
-            <div class="d-flex my-5 flex-column">
+</div> <div class="container-fluid bg-seccion py-3">
 
-                <div class="d-flex flex-column">
-                    
-                    <div class="col-12 text-center mb-5">
-                        <h3>Especialidades</h3>
-                        <hr>
-                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam id fugit, nesciunt ratione</p>
-                    </div>
+    <div class="container">
 
+        <div class="d-flex my-5 flex-column">
+
+            <div class="d-flex flex-column">
+
+                <div class="col-12 text-center mb-5">
+                    <h3>Especialidades</h3>
+                    <hr>
+                    <p>Contamos con un equipo médico altamente calificado en diversas áreas de la salud para brindarte el cuidado completo que mereces.</p>
                 </div>
 
+            </div>
                 <div class="row">
 
                     <div class="col-sm-12 mt-3 col-md-3">

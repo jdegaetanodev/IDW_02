@@ -38,9 +38,9 @@
             
             <div class="collapse navbar-collapse justify-content-between mt-4 mt-xs-0" id="navbarText">
             
-                <ul class="navbar-nav mb-2 mb-lg-0 w-75 d-flex justify-content-center">
+                <ul class="navbar-nav mb-2 mb-lg-0 w-75 d-flex justify-content-center" id="main-nav-list">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="../index.html">Inicio</a>
+                        <a class="nav-link" aria-current="page" href="../index.html">Inicio</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="../nosotros.html">Nosotros</a>
@@ -51,20 +51,31 @@
                     <li class="nav-item">
                         <a class="nav-link" href="../contacto.html">Contacto</a>
                     </li>
+                     <li class="nav-item d-none" id="nav-admin">
+            <a class="nav-link" href="../admin.html">Admin</a>
+        </li>
+                    <li class="nav-item d-none" id="nav-logout">
+                        <a class="nav-link" href="javascript:logout()">Cerrar Sesión</a>
+                    </li>
                 </ul>
+               
+    <span class="navbar-text col-xs-6 col-md-3 d-flex justify-content-start justify-content-md-end align-items-center" id="auth-buttons">
+                
+        <a href="login.html" id="btn-ingresar" class="btn btn-principal">INGRESAR</a>
 
-                <span class="navbar-text col-xs-6 col-md-3 d-flex justify-content-start justify-content-md-end">
-                    <a href="javascript:solicitarTurno()" class="btn btn-principal">SOLICITAR TURNO</a>
+        <a href="javascript:solicitarTurno()" id="btn-solicitar-turno" class="btn btn-principal d-none me-3">SOLICITAR TURNO</a>
+    
+    <span id="user-icon" class="d-none me-3" style="font-size: 1.5rem; color: #1B69B4;">
+        <i class="fa-solid fa-user"></i>
+    </span>
 
-                    <div class="dark-mode-btn">
-                        <button id="toggle-dark-mode">
-                            <i class="fa-solid fa-sun"></i>                    
-                        </button>
-                    </div>
+       <div class="dark-mode-btn">
+            <button id="toggle-dark-mode">
+                <i class="fa-solid fa-sun"></i>
+            </button>
+        </div>
 
-                </span>
-
-
+    </span> 
 
             </div>
 
@@ -199,6 +210,8 @@
     <!-- Js Personalizado -->
     <script src="../assets/js/config.js"></script>
     <script src="../assets/js/main.js"></script>  
+    
+    <script src="../assets/js/validaciones.js"></script>  
     <script src="medicos.js"></script>
 </body>
 </html>            
