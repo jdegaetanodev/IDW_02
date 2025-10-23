@@ -1,69 +1,67 @@
 function logout() {
-    // 1. Borrar la información de la sesión del localStorage
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userRole');
     localStorage.removeItem('username');
     
-    // 🚨 Mostrar alerta de sesión cerrada con SweetAlert2 🚨
     Swal.fire({
-        icon: 'info', // Puedes usar 'success' o 'info'
+        icon: 'info', 
         title: 'Sesión Cerrada',
         html: 'Has cerrado sesión correctamente. ¡Vuelve pronto!<br>Esta ventana se cerrará automáticamente en 2 segundos.',
-        showConfirmButton: false, // Opcional: No mostrar el botón
-        timer: 2000 // Opcional: Cerrar automáticamente después de 2 segundos
+        showConfirmButton: false, 
+        timer: 2000 
     }).then(() => {
-        // 2. Redirigir a la página principal (index.html) después de que SweetAlert se cierre
         window.location.href = 'index.html'; 
     });
 }
 
 function checkAuthentication() {
-    // 1. Obtener estado de logueo y ROL del usuario
     const isLogged = localStorage.getItem('isLoggedIn') === 'true';
-    const userRole = localStorage.getItem('userRole'); 
+    const userRole = localStorage.getItem('userRole');
 
-    // 2. Obtener referencias
     const btnIngresar = document.getElementById('btn-ingresar');
     const btnSolicitarTurno = document.getElementById('btn-solicitar-turno');
-    const navLogout = document.getElementById('nav-logout'); 
-    const userIcon = document.getElementById('user-icon'); // <--- Referencia al nuevo ícono
+    const navLogout = document.getElementById('nav-logout');
+    const userIcon = document.getElementById('user-icon');
+    const navAdmin = document.getElementById('nav-admin');
 
-    if (btnIngresar && btnSolicitarTurno && navLogout && userIcon) {
+    if (btnIngresar && btnSolicitarTurno && navLogout && userIcon && navAdmin) {
         if (isLogged) {
-            // USUARIO LOGUEADO: 
-            
             btnIngresar.classList.add('d-none');
-            navLogout.classList.remove('d-none');         
-            
-            // LÓGICA DEL ÍCONO: Muestra la silueta
+            navLogout.classList.remove('d-none');
             userIcon.classList.remove('d-none');
 
-            // LÓGICA DEL BOTÓN SOLICITAR TURNO (oculto para admin)
             if (userRole === 'administrador') {
                 btnSolicitarTurno.classList.add('d-none');
+                navAdmin.classList.remove('d-none');  // Mostrar botón Admin
             } else {
                 btnSolicitarTurno.classList.remove('d-none');
+                navAdmin.classList.add('d-none');     // Ocultar botón Admin
             }
-
         } else {
-            // USUARIO NO LOGUEADO:
-            
             btnIngresar.classList.remove('d-none');
             btnSolicitarTurno.classList.add('d-none');
-            navLogout.classList.add('d-none'); 
-            
-            // LÓGICA DEL ÍCONO: Oculta la silueta
+            navLogout.classList.add('d-none');
             userIcon.classList.add('d-none');
+            navAdmin.classList.add('d-none');         // Ocultar botón Admin si no está logueado
         }
     }
 }
 
 window.onload = checkAuthentication;
 
+
 function solicitarTurno()
 {
-    //alert('En desarrollo');
-    window.location.href = 'turnos.html';
+    // Detectar en qué carpeta estamos
+    const currentPath = window.location.pathname;
+    
+    if (currentPath.includes('/medicos/') || currentPath.includes('/especialidades/') || currentPath.includes('/turnos/')) {
+        // Estamos en una subcarpeta
+        window.location.href = 'turnos.html';
+    } else {
+        // Estamos en la raíz
+        window.location.href = 'turnos.html';
+    }
 }
 
 function cargaEnLocalStorage() // Carga desde la variable al LocalStorage
@@ -108,6 +106,9 @@ function cargarDesdeLocalstorage() {
 
 document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('toggle-dark-mode');
+    
+    if (!btn) return; // Si no existe el botón, salir
+    
     const icon = btn.querySelector('i');
     const body = document.body;
 
@@ -203,7 +204,7 @@ function desplegarProfesionalesEspecialidad(id_especialidad) {
     divVolver.innerHTML = `
     
         <a href="javascript:desplegarEspecialidades()" class="btn btn-success">
-            <i class="fa-solid fa-backward"></i>
+            <i class="fa-solid fa-backward"></i> Volver
         </a>
     
     `;

@@ -32,7 +32,7 @@ function manejarLogin(evento) {
 
         // 5. REDIRECCIÓN BASADA EN EL ROL
         if (usuarioEncontrado.rol === 'administrador') {
-            window.location.href = 'admin.html';
+            window.location.href = 'index.html';
         } else {
             window.location.href = 'index.html'; 
         }
