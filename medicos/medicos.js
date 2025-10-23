@@ -157,6 +157,8 @@ function editarProfesional(id_profesional) {
 
     completarComboEspecialidades()
     document.getElementById('especialidad').value = profesionalSeleccionado[0].id_especialidad;
+    console.log(profesionalSeleccionado[0].id_especialidad);
+    console.log(profesionalSeleccionado);
 
     completarComboObrasSociales();
     document.getElementById('obrasocial').value = profesionalSeleccionado[0].id_obra_social;
