@@ -10,7 +10,7 @@ function logout() {
         showConfirmButton: false, 
         timer: 2000 
     }).then(() => {
-        window.location.href = 'index.html'; 
+        window.location.href = '/IDW_02/index.html'; 
     });
 }
 
@@ -183,6 +183,34 @@ function desplegarEspecialidades() {
         listaEspecialidades.appendChild(fila);
 
     });   
+}
+
+function desplegarEspecialidadesIndex() {
+  let listaEspecialidades = document.getElementById("especialidades");
+
+
+  datosEspecialidades.forEach((especialidad) => {
+
+    const fila = document.createElement("div");
+
+    fila.classList.add("col-sm-12", "mt-3", "col-md-3");
+
+    fila.innerHTML = `
+                
+                    <!-- card -->
+                    <div class="card h-100">
+                        <img src="assets/img/${especialidad.img}" class="card-img-top" alt="Especialidad ${especialidad.nombre}">
+                        <div class="card-body text-center text-sm-start">
+                            <h5 class="card-title">${especialidad.nombre}</h5>
+                            <p class="card-text">${especialidad.descripcion}</p>                            
+                        </div>
+                    </div>             
+                    <!-- /card -->                         
+
+        `;
+
+    listaEspecialidades.appendChild(fila);
+  });
 }
 
 function desplegarProfesionalesEspecialidad(id_especialidad) {

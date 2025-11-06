@@ -155,11 +155,11 @@ function editarProfesional(id_profesional) {
     document.getElementById('apellido').value = profesionalSeleccionado[0].apellido;
     document.getElementById('nombre').value = profesionalSeleccionado[0].nombre;
 
-    completarComboEspecialidades()
-    document.getElementById('especialidad').value = profesionalSeleccionado[0].id_especialidad;
+    completarComboEspecialidades(profesionalSeleccionado[0].id_especialidad);
+    //document.getElementById('especialidad').value = profesionalSeleccionado[0].id_especialidad;
 
-    completarComboObrasSociales();
-    document.getElementById('obrasocial').value = profesionalSeleccionado[0].id_obra_social;
+    completarComboObrasSociales(profesionalSeleccionado[0].id_obra_social);
+    //document.getElementById('obrasocial').value = profesionalSeleccionado[0].id_obra_social;
     
     document.getElementById('consulta').value = profesionalSeleccionado[0].costo_consulta; 
 
@@ -355,19 +355,27 @@ function cerrarModal() {
 }
 
 
-function completarComboEspecialidades() {
+function completarComboEspecialidades(id_especialidad = null) {
+
     const cmbEspecialidad = document.getElementById('especialidad');
     cmbEspecialidad.innerHTML = '<option value="0">-- Seleccione una especialidad --</option>';
 
     datosEspecialidades.forEach(especialidad => {
+
         const nuevaOpcion = document.createElement('option');
         nuevaOpcion.value = especialidad.id_especialidad;
         nuevaOpcion.textContent = especialidad.nombre;
-        cmbEspecialidad.appendChild(nuevaOpcion);
-    });  
+
+        if (Number(especialidad.id_especialidad) === Number(id_especialidad)) {
+        
+            nuevaOpcion.selected = true;    
+        }
+        
+        cmbEspecialidad.appendChild(nuevaOpcion);        
+    });     
 }
 
-function completarComboObrasSociales() {
+function completarComboObrasSociales(id_obra_social = null) {
     let cmbObraSocial = document.getElementById('obrasocial');
     cmbObraSocial.innerHTML = '<option value="0">-- Seleccione una Obra Social --</option>';
 
@@ -375,6 +383,12 @@ function completarComboObrasSociales() {
         const nuevaOpcion = document.createElement('option');
         nuevaOpcion.value = obraSocial.id_obra_social;
         nuevaOpcion.textContent = obraSocial.nombre;
+
+        if (Number(obraSocial.id_obra_social) === Number(id_obra_social)) {
+            nuevaOpcion.selected = true;
+            console.log(nuevaOpcion); 
+        }
+
         cmbObraSocial.appendChild(nuevaOpcion);
     });              
 }
