@@ -1,8 +1,63 @@
+
+function verificarAutenticacion() {
+    const accessToken = sessionStorage.getItem('accessToken');
+    const currentPath = window.location.pathname;
+
+    const PUBLIC_PAGES = [
+        'login.html',
+        'index.html',
+        'contacto.html',
+        'nosotros.html', 
+        'especialidades.html'
+    ];
+
+   const isPublicPage = PUBLIC_PAGES.some(page => currentPath.includes(page));
+
+    let loginPath;
+
+    if (currentPath.includes('/medicos/') || 
+        currentPath.includes('/especialidades/') || 
+        currentPath.includes('/turnos/') ||
+        currentPath.includes('/obrassociales/') ||
+        currentPath.includes('/usuarios/')) {
+        
+        loginPath = '../login.html'; 
+    } else {
+        loginPath = 'login.html';
+    }
+
+
+    if (!accessToken && !isPublicPage) {
+        window.location.href = loginPath; 
+        return false; 
+    }
+    
+    return true; 
+}
+
+verificarAutenticacion();
+
+
 function logout() {
+    sessionStorage.removeItem('accessToken');
     localStorage.removeItem('isLoggedIn');
     localStorage.removeItem('userRole');
     localStorage.removeItem('username');
     
+    const currentPath = window.location.pathname;
+    let targetPath;
+
+    if (currentPath.includes('/medicos/') || 
+        currentPath.includes('/especialidades/') || 
+        currentPath.includes('/turnos/') ||
+        currentPath.includes('/obrassociales/') ||
+        currentPath.includes('/usuarios/')) {
+        
+        targetPath = '../index.html'; 
+    } else {
+        targetPath = 'index.html';
+    }
+
     Swal.fire({
         icon: 'info', 
         title: 'Sesión Cerrada',
@@ -10,13 +65,16 @@ function logout() {
         showConfirmButton: false, 
         timer: 2000 
     }).then(() => {
-        window.location.href = '/IDW_02/index.html'; 
+        window.location.href = targetPath;
     });
 }
 
-function checkAuthentication() {
-    const isLogged = localStorage.getItem('isLoggedIn') === 'true';
-    const userRole = localStorage.getItem('userRole');
+
+
+function checkAuthenticationAndUI() {
+    const isLogged = !!sessionStorage.getItem('accessToken');
+    const userRole = sessionStorage.getItem('userRole');
+    //const userName = sessionStorage.getItem('username');
 
     const btnIngresar = document.getElementById('btn-ingresar');
     const btnSolicitarTurno = document.getElementById('btn-solicitar-turno');
@@ -29,25 +87,28 @@ function checkAuthentication() {
             btnIngresar.classList.add('d-none');
             navLogout.classList.remove('d-none');
             userIcon.classList.remove('d-none');
-
+            
             if (userRole === 'administrador') {
                 btnSolicitarTurno.classList.add('d-none');
-                navAdmin.classList.remove('d-none');  // Mostrar botón Admin
-            } else {
+                navAdmin.classList.remove('d-none'); // Mostrar botón Admin
+            } else { // Paciente o Rol no Administrador
                 btnSolicitarTurno.classList.remove('d-none');
-                navAdmin.classList.add('d-none');     // Ocultar botón Admin
+                navAdmin.classList.add('d-none');    // Ocultar botón Admin
             }
+            
+            
         } else {
             btnIngresar.classList.remove('d-none');
             btnSolicitarTurno.classList.add('d-none');
             navLogout.classList.add('d-none');
             userIcon.classList.add('d-none');
-            navAdmin.classList.add('d-none');         // Ocultar botón Admin si no está logueado
+            navAdmin.classList.add('d-none'); // Ocultar botón Admin si no está logueado
         }
     }
 }
 
-window.onload = checkAuthentication;
+
+window.onload = checkAuthenticationAndUI;
 
 
 function solicitarTurno()
