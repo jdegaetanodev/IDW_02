@@ -1,61 +1,83 @@
-// Definición de usuarios y contraseñas (Hardcodeado)
-const USUARIOS_VALIDOS = [
-    { usuario: "paciente", clave: "paciente", rol: "paciente" },
-    { usuario: "admin", clave: "admin", rol: "administrador" }
-];
+const DUMMY_JSON_LOGIN_URL = 'https://dummyjson.com/auth/login';
 
-function manejarLogin(evento) {
-    // 1. Prevenir el envío normal del formulario
+async function manejarLogin(evento) {
     evento.preventDefault();
 
-    // 2. Obtener los valores de los campos
     const inputUsuario = document.getElementById('usuario');
     const inputContrasena = document.getElementById('contrasena');
     
-    const usuarioIngresado = inputUsuario.value.trim().toLowerCase();
+    const usuarioIngresado = inputUsuario.value.trim();
     const claveIngresada = inputContrasena.value.trim();
 
-    // 3. Buscar si el usuario existe y si la clave coincide
-    const usuarioEncontrado = USUARIOS_VALIDOS.find(user => 
-        user.usuario === usuarioIngresado && user.clave === claveIngresada
-    );
+    const btnIngresar = document.querySelector('.btn-ingresar');
+    btnIngresar.disabled = true;
+    btnIngresar.textContent = 'Ingresando...'; 
 
-    if (usuarioEncontrado) {
-        // --- INICIO DE SESIÓN EXITOSO ---
-        
-        // 4. Almacenar el estado de la sesión en localStorage
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('userRole', usuarioEncontrado.rol);
-        localStorage.setItem('username', usuarioEncontrado.usuario);
+    try {
+        const respuesta = await fetch(DUMMY_JSON_LOGIN_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                username: usuarioIngresado,
+                password: claveIngresada,
+            })
+        });
 
-        // ¡ATENCIÓN! Se ELIMINA el alert de bienvenida aquí.
+        const datos = await respuesta.json();
 
-        // 5. REDIRECCIÓN BASADA EN EL ROL
-        if (usuarioEncontrado.rol === 'administrador') {
-            window.location.href = 'index.html';
+        if (respuesta.ok) {
+            sessionStorage.setItem('accessToken', datos.token);
+            sessionStorage.setItem('userId', datos.id);
+            sessionStorage.setItem('username', datos.username);
+            
+            const userRole = (datos.id === 1) ? 'administrador' : 'paciente';
+            sessionStorage.setItem('userRole', userRole);
+
+            if (userRole === 'administrador') {
+                window.location.href = 'index.html'; 
+            } else {
+                window.location.href = 'index.html'; 
+            }
+
         } else {
-            window.location.href = 'index.html'; 
+           let errorMessage = datos.message; 
+            
+            if (errorMessage === 'Invalid credentials') {
+                errorMessage = 'Credenciales Inválidas. Usuario o contraseña incorrectos.';
+            } else {
+                errorMessage = 'Error en el inicio de sesión. Por favor, intente de nuevo.';
+            }
+
+            Swal.fire({
+                icon: 'error',
+                title: 'Acceso denegado',
+                text: errorMessage,
+                confirmButtonText: 'Cerrar',
+                confirmButtonColor: '#d33'
+            });
         }
 
-    } else {
-        // --- INICIO DE SESIÓN FALLIDO ---
-        
-        // 🚨 Mostrar alerta de error con SweetAlert2 🚨
+    } catch (error) {
+        console.error("Error al intentar iniciar sesión:", error);
         Swal.fire({
             icon: 'error',
-            title: 'Acceso denegado',
-            text: 'Usuario o contraseña incorrectos.',
+            title: 'Error de Conexión',
+            text: 'No se pudo conectar con el servidor de autenticación.',
             confirmButtonText: 'Cerrar',
             confirmButtonColor: '#d33'
         });
 
-        // Limpiar el campo de contraseña
-        inputContrasena.value = '';
-        inputUsuario.focus();
+    } finally {
+        btnIngresar.disabled = false;
+        btnIngresar.textContent = 'Ingresar al Sistema';
+        
+        if (!respuesta.ok) {
+            inputContrasena.value = '';
+            inputUsuario.focus();
+        }
     }
 }
 
-// ... El listener del evento 'submit' se mantiene igual ...
 document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.getElementById('formularioLogin');
     if (formulario) {
