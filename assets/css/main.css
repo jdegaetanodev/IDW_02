@@ -45,7 +45,10 @@
   font-weight: 400; 
 }
 
+<<<<<<< HEAD
 /* Capa de Fondo oscura */
+=======
+>>>>>>> 5b2b1c7 (Commit inicial con mis cambios locales)
 
 .carousel-overlay-container {
   position: relative; 
@@ -73,3 +76,106 @@
   z-index: 2; 
 }
 
+<<<<<<< HEAD
+=======
+.seccion-contenido {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #68B4E4;
+}
+.seccion-contenido h2 {
+    color: #1B69B4;
+    margin-bottom: 1rem;
+}
+.imagen-seccion {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.imagen-seccion {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.dark-mode-btn button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    position: relative;    
+    border-radius: 50%;
+    padding-left: 1.5rem;
+    transition: background-color 0.3s;
+}
+
+.dark-mode-btn i {
+    position: relative;
+    z-index: 1;
+    color: #f1c40f; 
+    transition: color 0.3s;
+}
+
+
+body.dark-mode .dark-mode-btn button::before {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+
+body.dark-mode {
+    background-color: #121212;
+    color: #f0f0f0;    
+}
+
+body.dark-mode .nav-link{
+    color: #f0f0f0 !important;    
+}
+
+body.dark-mode .navbar{
+    background-color: #1f1d1d !important;
+    color: #f0f0f0 !important;    
+}
+
+body.dark-mode .bg-seccion {
+    background-color: #121212 !important;
+}
+
+body.dark-mode .seccion-contenido {
+    background-color: #2d2d2d;  
+    color: #ffffff;  
+}
+
+body.dark-mode .card {
+    background-color: #2d2d2d;  
+    color: #ffffff;  
+    border-color: #444;  
+}
+
+body.dark-mode .card-title {
+    color: #68B4E4;  
+}
+
+body.dark-mode .card-text {
+    color: #e0e0e0;  
+}
+
+
+body.dark-mode .dark-mode-btn i {
+    color: #ffffff; 
+}
+>>>>>>> 5b2b1c7 (Commit inicial con mis cambios locales)

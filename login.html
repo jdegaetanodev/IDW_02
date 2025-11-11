@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - Clínica Sanar</title>
+    <!-- css bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <style>
+        body {
+            background-color: #EDF0F5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+        .contenedor-login {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            max-width: 450px;
+            width: 100%;
+            border-top: 5px solid #1B69B4;
+        }
+        .logo-clinica {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .logo-clinica h1 {
+            color: #1B69B4;
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        .logo-clinica p {
+            color: #6c757d;
+            font-size: 1rem;
+        }
+        .form-label {
+            color: #333;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .form-control {
+            border: 2px solid #EDF0F5;
+            padding: 0.8rem;
+            font-size: 1rem;
+        }
+        .form-control:focus {
+            border-color: #68B4E4;
+            box-shadow: 0 0 0 0.2rem rgba(104, 180, 228, 0.25);
+        }
+        .btn-ingresar {
+            background-color: #1B69B4;
+            color: white;
+            border: none;
+            padding: 0.8rem;
+            width: 100%;
+            font-weight: 500;
+            border-radius: 5px;
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        .btn-ingresar:hover {
+            background-color: #0d4a8a;
+        }
+        .pie-pagina {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #2d2d2d;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .campo-obligatorio {
+            color: #dc3545;
+        }
+        .info-adicional {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #dee2e6;
+        }
+        .info-adicional a {
+            color: #1B69B4;
+            text-decoration: none;
+        }
+        .info-adicional a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor-login">
+        <div class="logo-clinica">
+            <h1>🏥 Clínica Sanar</h1>
+            <p>Sistema de Gestión de Turnos</p>
+        </div>
+
+        <form id="formularioLogin">
+            
+            <!-- usuario -->
+            <div class="mb-3">
+                <label for="usuario" class="form-label">
+                    Usuario <span class="campo-obligatorio">*</span>
+                </label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="usuario" 
+                    name="usuario"
+                    placeholder="Ingrese su usuario" 
+                    required>
+            </div>
+
+            <!--  contraseña -->
+            <div class="mb-3">
+                <label for="contrasena" class="form-label">
+                    Contraseña <span class="campo-obligatorio">*</span>
+                </label>
+                <input 
+                    type="password" 
+                    class="form-control" 
+                    id="contrasena" 
+                    name="contrasena"
+                    placeholder="Ingrese su contraseña" 
+                    required>
+            </div>
+
+            <!-- checkbox recordar -->
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" id="recordar" name="recordar">
+                <label class="form-check-label" for="recordar">
+                    Recordar mi sesión
+                </label>
+            </div>
+
+            <!-- botón ingresar -->
+            <button type="submit" class="btn-ingresar">Ingresar al Sistema</button>
+
+        </form>
+
+        <!-- nformación adicional -->
+        <div class="info-adicional">
+            <p class="mb-2">
+                <a href="#">¿Olvidaste tu contraseña?</a>
+            </p>
+            <p class="text-muted" style="font-size: 0.85rem;">
+                <small>Campos obligatorios marcados con <span class="campo-obligatorio">*</span></small>
+            </p>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="pie-pagina">
+        <p class="mb-0">&copy; 2025 Clínica Sanar | Todos los derechos reservados</p>
+    </footer>
+
+    <!-- boostrap js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/login.js"></script>
+
+</body>
+</html>
