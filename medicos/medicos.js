@@ -294,11 +294,12 @@ function editarProfesional(id_profesional) {
     document.getElementById('matricula').value = profesionalSeleccionado[0].matricula;
     document.getElementById('apellido').value = profesionalSeleccionado[0].apellido;
     document.getElementById('nombre').value = profesionalSeleccionado[0].nombre;
-
-    completarComboEspecialidades(profesionalSeleccionado[0].id_especialidad);
-    completarComboObrasSociales(profesionalSeleccionado[0].id_obra_social);
     
     document.getElementById('consulta').value = profesionalSeleccionado[0].costo_consulta;
+    
+    // ✅ LLENAR COMBOS PRIMERO (antes de mostrar el modal)
+    completarComboEspecialidades(profesionalSeleccionado[0].id_especialidad);
+    completarComboObrasSociales(profesionalSeleccionado[0].id_obra_social);
     
     // Cargar imagen si existe
     if (profesionalSeleccionado[0].img_base64) {
@@ -310,7 +311,15 @@ function editarProfesional(id_profesional) {
         document.getElementById('vista-previa-container').style.display = 'none';
     }
 
-    mostrarFormulario();
+    // ✅ MOSTRAR MODAL AL FINAL (sin volver a llamar a los combos)
+    const miModalElemento = document.getElementById('profesionales');
+    let miModal = bootstrap.Modal.getInstance(miModalElemento);
+
+    if (!miModal) {
+        miModal = new bootstrap.Modal(miModalElemento);
+    }
+
+    miModal.show();
 }
 
 // ============================================
@@ -340,8 +349,12 @@ function mostrarFormulario() {
     const miModalElemento = document.getElementById('profesionales');
     let miModal = bootstrap.Modal.getInstance(miModalElemento);
 
-    completarComboEspecialidades();
-    completarComboObrasSociales();
+    // ✅ Solo completar combos si NO están ya completados (para nuevo profesional)
+    const especialidadCombo = document.getElementById('especialidad');
+    if (especialidadCombo.options.length <= 1) {
+        completarComboEspecialidades();
+        completarComboObrasSociales();
+    }
 
     if (!miModal) {
         miModal = new bootstrap.Modal(miModalElemento);
@@ -349,7 +362,6 @@ function mostrarFormulario() {
 
     miModal.show();
 }
-
 // ============================================
 // ELIMINAR PROFESIONAL
 // ============================================
