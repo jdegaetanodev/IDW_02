@@ -60,7 +60,9 @@ function verificarAutenticacion() {
         'especialidades.html'
     ];
 
-    const isPublicPage = PUBLIC_PAGES.some(page => currentPath.includes(page));
+    const isPublicPage = PUBLIC_PAGES.some(page => 
+    currentPath.includes(page) || currentPath.endsWith('/') || currentPath === '/'
+);
 
     let loginPath;
 
