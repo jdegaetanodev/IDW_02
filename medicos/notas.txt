@@ -1,0 +1,2 @@
+- Faltan Validaciones al insertar o editar
+- Al eliminar validar si esta asignado a algun turno

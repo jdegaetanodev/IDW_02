@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador Rápido - imagenes-base64.js</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 800px;
+            width: 100%;
+            padding: 40px;
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+        .file-input-wrapper {
+            position: relative;
+            margin: 30px 0;
+        }
+        .file-input-wrapper input[type="file"] {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+        .file-input-label {
+            display: block;
+            padding: 40px;
+            border: 3px dashed #667eea;
+            border-radius: 15px;
+            text-align: center;
+            background: #f8f9ff;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .file-input-label:hover {
+            background: #eef1ff;
+            border-color: #764ba2;
+        }
+        .file-input-label i {
+            font-size: 48px;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        .btn-primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+        .btn-success {
+            background: #10b981;
+            color: white;
+            display: none;
+        }
+        .btn-success:hover {
+            background: #059669;
+        }
+        .progress-info {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f0f9ff;
+            border-radius: 10px;
+            display: none;
+        }
+        .progress-info.show {
+            display: block;
+        }
+        .status-item {
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        .badge-success { background: #10b981; color: white; }
+        .badge-info { background: #3b82f6; color: white; }
+        .badge-warning { background: #f59e0b; color: white; }
+        .resultado {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f9fafb;
+            border-radius: 10px;
+            display: none;
+        }
+        .resultado.show {
+            display: block;
+        }
+        .codigo-box {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+        .instrucciones {
+            background: #fef3c7;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+            border-left: 4px solid #f59e0b;
+        }
+        .instrucciones h3 {
+            color: #92400e;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+        .instrucciones ol {
+            margin-left: 20px;
+            color: #78350f;
+        }
+        .instrucciones li {
+            margin: 5px 0;
+        }
+        .instrucciones code {
+            background: white;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🖼️ Generador imagenes-base64.js</h1>
+        <p class="subtitle">Selecciona las 50 imágenes de assets/img y genera el archivo automáticamente</p>
+
+        <div class="file-input-wrapper">
+            <input type="file" id="fileInput" multiple accept="image/*">
+            <label for="fileInput" class="file-input-label">
+                <div style="font-size: 48px; margin-bottom: 15px;">📁</div>
+                <strong>Haz clic o arrastra aquí las imágenes</strong>
+                <div style="margin-top: 10px; color: #666; font-size: 14px;">
+                    Puedes seleccionar múltiples archivos (Ctrl+A para seleccionar todas)
+                </div>
+            </label>
+        </div>
+
+        <button class="btn btn-primary" id="btnGenerar" disabled>
+            ✨ Generar Archivo imagenes-base64.js
+        </button>
+
+        <button class="btn btn-success" id="btnCopiar">
+            📋 Copiar Código Generado
+        </button>
+
+        <div class="progress-info" id="progressInfo">
+            <h3 style="margin-bottom: 10px;">📊 Progreso</h3>
+            <div id="statusList"></div>
+        </div>
+
+        <div class="resultado" id="resultado">
+            <h3 style="margin-bottom: 15px; color: #059669;">✅ Código Generado Exitosamente</h3>
+            <div class="codigo-box" id="codigoGenerado"></div>
+        </div>
+
+        <div class="instrucciones">
+            <h3>📖 Siguiente Paso</h3>
+            <ol>
+                <li>Haz clic en <strong>"Copiar Código Generado"</strong></li>
+                <li>Crea el archivo: <code>assets/js/imagenes-base64.js</code></li>
+                <li>Pega el código copiado dentro del archivo</li>
+                <li>Guarda el archivo</li>
+                <li>¡Recarga tu página web y las imágenes cargarán desde Base64! 🚀</li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        let imagenesSeleccionadas = [];
+        const fileInput = document.getElementById('fileInput');
+        const btnGenerar = document.getElementById('btnGenerar');
+        const btnCopiar = document.getElementById('btnCopiar');
+        const progressInfo = document.getElementById('progressInfo');
+        const statusList = document.getElementById('statusList');
+        const resultado = document.getElementById('resultado');
+        const codigoGenerado = document.getElementById('codigoGenerado');
+
+        fileInput.addEventListener('change', async (e) => {
+            const files = Array.from(e.target.files);
+            if (files.length === 0) return;
+
+            imagenesSeleccionadas = [];
+            statusList.innerHTML = '';
+            progressInfo.classList.add('show');
+            btnGenerar.disabled = true;
+            resultado.classList.remove('show');
+            btnCopiar.style.display = 'none';
+
+            statusList.innerHTML = `<div class="status-item">⏳ Procesando ${files.length} imagen(es)...</div>`;
+
+            for (const file of files) {
+                try {
+                    // Comprimir la imagen antes de convertir
+                    const base64Comprimido = await comprimirYConvertir(file);
+                    imagenesSeleccionadas.push({
+                        nombre: file.name,
+                        base64: base64Comprimido,
+                        tamanioOriginal: (file.size / 1024).toFixed(2),
+                        tamanioFinal: (base64Comprimido.length / 1024).toFixed(2)
+                    });
+
+                    const statusItem = document.createElement('div');
+                    statusItem.className = 'status-item';
+                    statusItem.innerHTML = `
+                        ✅ ${file.name} 
+                        <span class="badge badge-success">${(file.size / 1024).toFixed(2)} KB → ${(base64Comprimido.length / 1024).toFixed(2)} KB</span>
+                    `;
+                    statusList.appendChild(statusItem);
+                } catch (error) {
+                    const statusItem = document.createElement('div');
+                    statusItem.className = 'status-item';
+                    statusItem.innerHTML = `❌ Error: ${file.name}`;
+                    statusList.appendChild(statusItem);
+                }
+            }
+
+            btnGenerar.disabled = false;
+            
+            const tamanioTotalKB = imagenesSeleccionadas.reduce((sum, img) => sum + parseFloat(img.tamanioFinal), 0);
+            
+            const resumen = document.createElement('div');
+            resumen.className = 'status-item';
+            resumen.style.fontWeight = 'bold';
+            resumen.style.marginTop = '10px';
+            resumen.innerHTML = `
+                📊 Total: ${imagenesSeleccionadas.length} imágenes | ${(tamanioTotalKB / 1024).toFixed(2)} MB
+                <span class="badge badge-info">Listo para generar</span>
+            `;
+            statusList.appendChild(resumen);
+        });
+
+        btnGenerar.addEventListener('click', () => {
+            if (imagenesSeleccionadas.length === 0) {
+                alert('No hay imágenes seleccionadas');
+                return;
+            }
+
+            // Ordenar alfabéticamente
+            imagenesSeleccionadas.sort((a, b) => a.nombre.localeCompare(b.nombre));
+
+            let codigo = `/**
+ * IMÁGENES EN BASE64 - Clínica Sanar
+ * Generado automáticamente
+ * Total: ${imagenesSeleccionadas.length} imágenes
+ * 
+ * IMPORTANTE: Este archivo contiene todas las imágenes del sitio en formato Base64
+ * Una vez que este archivo esté cargado, puedes ELIMINAR la carpeta assets/img
+ */
+
+window.IMAGENES_BASE64 = {
+`;
+
+            imagenesSeleccionadas.forEach((img, index) => {
+                const esUltima = index === imagenesSeleccionadas.length - 1;
+                const coma = esUltima ? '' : ',';
+                codigo += `    "${img.nombre}": "${img.base64}"${coma}\n`;
+            });
+
+            codigo += `};
+
+// Función auxiliar para obtener imágenes
+function obtenerImagen(nombreArchivo, carpetaDefault = 'assets/img') {
+    if (window.IMAGENES_BASE64 && window.IMAGENES_BASE64[nombreArchivo]) {
+        return window.IMAGENES_BASE64[nombreArchivo];
+    }
+    return \`\${carpetaDefault}/\${nombreArchivo}\`;
+}
+
+console.log('✅ Imágenes Base64 cargadas: ${imagenesSeleccionadas.length} archivos');
+`;
+
+            codigoGenerado.textContent = codigo;
+            resultado.classList.add('show');
+            btnCopiar.style.display = 'block';
+
+            // Scroll al resultado
+            resultado.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+            const tamanioTotal = (codigo.length / 1024 / 1024).toFixed(2);
+            alert(`✅ Código generado!\n\n📊 Estadísticas:\n- Imágenes: ${imagenesSeleccionadas.length}\n- Tamaño: ${tamanioTotal} MB\n\n🎉 Ahora puedes ELIMINAR la carpeta assets/img`);
+        });
+
+        btnCopiar.addEventListener('click', () => {
+            const codigo = codigoGenerado.textContent;
+            navigator.clipboard.writeText(codigo).then(() => {
+                const originalText = btnCopiar.textContent;
+                btnCopiar.textContent = '✅ ¡Copiado al portapapeles!';
+                btnCopiar.style.background = '#059669';
+                
+                setTimeout(() => {
+                    btnCopiar.textContent = originalText;
+                    btnCopiar.style.background = '#10b981';
+                }, 2000);
+            });
+        });
+
+        function comprimirYConvertir(file) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                
+                reader.onload = (e) => {
+                    const img = new Image();
+                    
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        
+                        // Determinar tamaño máximo según tipo de imagen
+                        let maxWidth, maxHeight;
+                        const nombre = file.name.toLowerCase();
+                        
+                        if (nombre.includes('logo')) {
+                            maxWidth = 300;
+                            maxHeight = 300;
+                        } else if (nombre.includes('slider')) {
+                            maxWidth = 1200;
+                            maxHeight = 600;
+                        } else if (nombre.includes('default')) {
+                            maxWidth = 600;
+                            maxHeight = 600;
+                        } else {
+                            maxWidth = 800;
+                            maxHeight = 800;
+                        }
+                        
+                        let width = img.width;
+                        let height = img.height;
+                        
+                        // Mantener proporción
+                        if (width > height) {
+                            if (width > maxWidth) {
+                                height = (height * maxWidth) / width;
+                                width = maxWidth;
+                            }
+                        } else {
+                            if (height > maxHeight) {
+                                width = (width * maxHeight) / height;
+                                height = maxHeight;
+                            }
+                        }
+                        
+                        canvas.width = width;
+                        canvas.height = height;
+                        ctx.drawImage(img, 0, 0, width, height);
+                        
+                        // Comprimir (70% calidad)
+                        const base64 = canvas.toDataURL('image/jpeg', 0.7);
+                        resolve(base64);
+                    };
+                    
+                    img.onerror = reject;
+                    img.src = e.target.result;
+                };
+                
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+    </script>
+</body>
+</html>
